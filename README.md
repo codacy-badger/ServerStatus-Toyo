@@ -1,27 +1,27 @@
-# ServerStatus-Toyo： 
+# ServerStatus-Toyo：
 
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 * ServerStatus-Toyo版是一个酷炫高逼格的云探针、云监控、服务器云监控、多服务器探针~，该云监控（云探针）是ServerStatus（ https://github.com/tenyue/ServerStatus ）项目的优化/修改版。
-* 在线演示：https://tz.toyoo.pw    
+* 在线演示：https://tz.toyoo.pw
 * 我的博客：https://doub.io/shell-jc3/
 
 # 目录介绍：
 
 * clients  客户端文件
 * server   服务端文件
-* web      网站文件  
+* web      网站文件
 
 # 更新说明：
 
-* 2018.08.21, 修改新样式，效果见 https://tz.toyoo.pw  
+* 2018.08.21, 修改新样式，效果见 https://tz.toyoo.pw
 * 2017.10.12, 负载Load 优化，并且支持CentOS6系统
 * 2017.10.10, 修改负载 Load 的值为：当前服务器上链接SSR等软件的IP总数(只要软件监听IPv6那么就能统计，例如SSH)
 * 2017.04.30, 优化手机显示式样
 * 2017.04.29, 去除主机名设定
 * 2017.04.27, 增加一键部署脚本
 
-# 安装教程：     
+# 安装教程：
 
 执行下面的代码下载并运行脚本。
 ``` bash
@@ -34,7 +34,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 ``` bash
 # 显示客户端管理菜单
 bash status.sh c
- 
+
 # 显示服务端管理菜单
 bash status.sh s
 ```
@@ -48,7 +48,7 @@ bash status.sh s
 
 ``` bash
 是否由脚本自动配置HTTP服务(服务端的在线监控网站)[Y/n]
- 
+
 # 如果你不懂，那就直接回车，如果你想用其他的HTTP服务自己配置，那么请输入 n 并回车。
 # 注意，当你曾经安装过 服务端，同时没有卸载Caddy(HTTP服务)，那么重新安装服务端的时候，请输入 n 并回车。
 ```
@@ -73,7 +73,7 @@ bash status.sh s
 ``` bash
 ServerStatus 一键安装管理脚本 [vx.x.x]
 -- Toyo | doub.io/shell-jc3 --
- 
+
 0. 升级脚本
 ————————————
 1. 安装 服务端
@@ -88,9 +88,9 @@ ServerStatus 一键安装管理脚本 [vx.x.x]
 8. 查看 服务端日志
 ————————————
 9. 切换为 客户端菜单
- 
+
 当前状态: 服务端 已安装 并 已启动
- 
+
 请输入数字 [0-9]:
 ```
 # 其他操作
@@ -152,9 +152,9 @@ Caddy配置文件：/usr/local/caddy/caddy
 CentOS7系统 默认可能没有安装 netstat 依赖，所以会造成IP检测(负载)出错，手动安装即可：
 `yum install net-tools -y `
 
-# 相关开源项目，感谢： 
+# 相关开源项目，感谢：
 
 * ServerStatus：https://github.com/BotoX/ServerStatus
-* mojeda: https://github.com/mojeda 
+* mojeda: https://github.com/mojeda
 * mojeda's ServerStatus: https://github.com/mojeda/ServerStatus
 * BlueVM's project: http://www.lowendtalk.com/discussion/comment/169690#Comment_169690
