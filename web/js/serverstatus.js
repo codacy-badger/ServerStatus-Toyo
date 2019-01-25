@@ -5,29 +5,29 @@ var server_status = new Array();
 
 function timeSince(date) {
 	if(date == 0)
-		return "从未.";
+		return "从未";
 
 	var seconds = Math.floor((new Date() - date) / 1000);
 	var interval = Math.floor(seconds / 31536000);
 
 	if (interval > 1)
-		return interval + " 年前.";
+		return interval + " 年前";
 	interval = Math.floor(seconds / 2592000);
 	if (interval > 1)
-		return interval + " 月前.";
+		return interval + " 月前";
 	interval = Math.floor(seconds / 86400);
 	if (interval > 1)
-		return interval + " 日前.";
+		return interval + " 日前";
 	interval = Math.floor(seconds / 3600);
 	if (interval > 1)
-		return interval + " 小时前.";
+		return interval + " 小时前";
 	interval = Math.floor(seconds / 60);
 	if (interval > 1)
-		return interval + " 分钟前.";
+		return interval + " 分钟前";
 	/*if(Math.floor(seconds) >= 5)
 		return Math.floor(seconds) + " seconds";*/
 	else
-		return "几秒前.";
+		return "几秒前";
 }
 
 function bytesToSize(bytes, precision, si)
@@ -300,7 +300,7 @@ function uptime() {
 			});
 		}
 		error = 1;
-		$("#updated").html("更新错误.");
+		$("#updated").html("更新错误");
 	});
 }
 
