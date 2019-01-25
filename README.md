@@ -25,10 +25,7 @@
 
 执行下面的代码下载并运行脚本。
 ``` bash
-wget -N https://softs.loan/Bash/status.sh && chmod +x status.sh
-
-# 如果上面这个脚本无法下载，尝试使用备用下载：
-wget -N https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/status.sh && chmod +x status.sh
+wget -N https://raw.githubusercontent.com/wym3253/ServerStatus-Toyo/master/script/status.sh && chmod +x status.sh
 ```
 下载脚本后，根据需要安装客户端或者服务端：
 ``` bash
