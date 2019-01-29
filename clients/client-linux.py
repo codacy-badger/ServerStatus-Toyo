@@ -3,13 +3,11 @@
 # 支持Python版本：2.6 to 3.5
 # 支持操作系统： Linux, OSX, FreeBSD, OpenBSD and NetBSD, both 32-bit and 64-bit architectures
 
-
 SERVER = "127.0.0.1"
 PORT = 35601
 USER = "USER"
 PASSWORD = "USER_PASSWORD"
 INTERVAL = 1 #更新间隔
-
 
 import socket
 import time
@@ -55,9 +53,9 @@ def get_hdd():
 	size = total.split()[2]
 	return int(size), int(used)
 
-def get_load():
-	tmp_load = os.popen("netstat -anp |grep ESTABLISHED |grep python |grep tcp6 |awk '{print $5}' |awk -F ':' '{print $1}' |sort -u |wc -l").read()
-	return float(tmp_load)
+#def get_load():
+#	tmp_load = os.popen("netstat -anp |grep ESTABLISHED |grep python |grep tcp6 |awk '{print $5}' |awk -F ':' '{print $1}' |sort -u |wc -l").read()
+#	return float(tmp_load)
 	#return os.getloadavg()[0]
 
 def get_time():
@@ -179,7 +177,7 @@ if __name__ == '__main__':
 				NetRx, NetTx = traffic.get()
 				NET_IN, NET_OUT = liuliang()
 				Uptime = get_uptime()
-				Load = get_load()
+				Load_1, Load_5, Load_15 = os.getloadavg()
 				MemoryTotal, MemoryUsed, SwapTotal, SwapFree = get_memory()
 				HDDTotal, HDDUsed = get_hdd()
 
@@ -191,7 +189,9 @@ if __name__ == '__main__':
 					timer -= 1*INTERVAL
 
 				array['uptime'] = Uptime
-				array['load'] = Load
+                array['load_1'] = Load_1
+                array['load_5'] = Load_5
+                array['load_15'] = Load_15
 				array['memory_total'] = MemoryTotal
 				array['memory_used'] = MemoryUsed
 				array['swap_total'] = SwapTotal

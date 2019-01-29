@@ -51,17 +51,9 @@ def get_hdd():
 	size = total.split()[2]
 	return int(size), int(used)
 
-def get_load():
-	system = platform.linux_distribution()
-	if system[0][:6] == "CentOS":
-		if system[1][0] == "6":
-			tmp_load = os.popen("netstat -anp |grep ESTABLISHED |grep tcp |grep '::ffff:' |awk '{print $5}' |awk -F ':' '{print $4}' |sort -u |grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' |wc -l").read()
-		else:
-			tmp_load = os.popen("netstat -anp |grep ESTABLISHED |grep tcp6 |awk '{print $5}' |awk -F ':' '{print $1}' |sort -u |grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' |wc -l").read()
-	else:
-		tmp_load = os.popen("netstat -anp |grep ESTABLISHED |grep tcp6 |awk '{print $5}' |awk -F ':' '{print $1}' |sort -u |grep -E -o '([0-9]{1,3}[\.]){3}[0-9]{1,3}' |wc -l").read()
-
-	return float(tmp_load)
+#def get_load():
+#	tmp_load = os.popen("netstat -anp |grep ESTABLISHED |grep python |grep tcp6 |awk '{print $5}' |awk -F ':' '{print $1}' |sort -u |wc -l").read()
+#	return float(tmp_load)
 	#return os.getloadavg()[0]
 
 def get_time():
@@ -183,7 +175,7 @@ if __name__ == '__main__':
 				NetRx, NetTx = traffic.get()
 				NET_IN, NET_OUT = liuliang()
 				Uptime = get_uptime()
-				Load = get_load()
+				Load_1, Load_5, Load_15 = os.getloadavg()
 				MemoryTotal, MemoryUsed, SwapTotal, SwapFree = get_memory()
 				HDDTotal, HDDUsed = get_hdd()
 
@@ -195,7 +187,9 @@ if __name__ == '__main__':
 					timer -= 1*INTERVAL
 
 				array['uptime'] = Uptime
-				array['load'] = Load
+                array['load_1'] = Load_1
+                array['load_5'] = Load_5
+                array['load_15'] = Load_15
 				array['memory_total'] = MemoryTotal
 				array['memory_used'] = MemoryUsed
 				array['swap_total'] = SwapTotal
