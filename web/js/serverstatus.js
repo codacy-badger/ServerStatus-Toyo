@@ -198,7 +198,7 @@ function uptime() {
 					netstr += (result.servers[i].network_rx / 1000).toFixed(0) + "K";
 				else
 					netstr += (result.servers[i].network_rx / 1000 / 1000).toFixed(1) + "M";
-				netstr += " | "
+				netstr += " &#47; "
 				if (result.servers[i].network_tx < 1000)
 					netstr += result.servers[i].network_tx.toFixed(0) + "B";
 				else if (result.servers[i].network_tx < 1000 * 1000)
@@ -219,7 +219,7 @@ function uptime() {
 					trafficstr += (result.servers[i].network_in / 1024 / 1024 / 1024).toFixed(2) + "G";
 				else
 					trafficstr += (result.servers[i].network_in / 1024 / 1024 / 1024 / 1024).toFixed(2) + "T";
-				trafficstr += " | "
+				trafficstr += " &#47; "
 				if (result.servers[i].network_out < 1024)
 					trafficstr += result.servers[i].network_out.toFixed(0) + "B";
 				else if (result.servers[i].network_out < 1024 * 1024)
@@ -252,9 +252,9 @@ function uptime() {
 					TableRow.children["memory"].children[0].children[0].className = "progress-bar progress-bar-success";
 				TableRow.children["memory"].children[0].children[0].style.width = Mem + "%";
 				TableRow.children["memory"].children[0].children[0].innerHTML = Mem + "%";
-				ExpandRow[0].children["expand_mem"].innerHTML = "内存信息: " + bytesToSize(result.servers[i].memory_used * 1024, 2) + " / " + bytesToSize(result.servers[i].memory_total * 1024, 2);
+				ExpandRow[0].children["expand_mem"].innerHTML = "内存信息: " + bytesToSize(result.servers[i].memory_used * 1024, 2) + " &#47; " + bytesToSize(result.servers[i].memory_total * 1024, 2);
 				// Swap
-				ExpandRow[0].children["expand_swap"].innerHTML = "交换分区: " + bytesToSize(result.servers[i].swap_used * 1024, 2) + " / " + bytesToSize(result.servers[i].swap_total * 1024, 2);
+				ExpandRow[0].children["expand_swap"].innerHTML = "交换分区: " + bytesToSize(result.servers[i].swap_used * 1024, 2) + " &#47; " + bytesToSize(result.servers[i].swap_total * 1024, 2);
 
 				// HDD
 				var HDD = ((result.servers[i].hdd_used / result.servers[i].hdd_total) * 100.0).toFixed(0);
@@ -266,7 +266,7 @@ function uptime() {
 					TableRow.children["hdd"].children[0].children[0].className = "progress-bar progress-bar-success";
 				TableRow.children["hdd"].children[0].children[0].style.width = HDD + "%";
 				TableRow.children["hdd"].children[0].children[0].innerHTML = HDD + "%";
-				ExpandRow[0].children["expand_hdd"].innerHTML = "硬盘信息: " + bytesToSize(result.servers[i].hdd_used * 1024 * 1024, 2) + " / " + bytesToSize(result.servers[i].hdd_total * 1024 * 1024, 2);
+				ExpandRow[0].children["expand_hdd"].innerHTML = "硬盘信息: " + bytesToSize(result.servers[i].hdd_used * 1024 * 1024, 2) + " &#47; " + bytesToSize(result.servers[i].hdd_total * 1024 * 1024, 2);
 
 				// Custom
 				if (result.servers[i].custom) {
